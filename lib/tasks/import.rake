@@ -1,18 +1,39 @@
 require 'csv'
 
 namespace :import_csv_files do
-  task :customers => [:environment] do
+  task customers: [:environment] do
 
     file = "data/customers.csv"
 
-    CSV.foreach(file, :headers => true) do |row|
-      Customer.create({
-        id: row[0],
-        first_name: row[1],
-        last_name: row[2],
-        created_at: row[3],
-        updated_at: row[4]
-      })
+    CSV.foreach(file, headers: true) do |row|
+      Customer.create(row.to_h)
+    end
+  end
+
+  task merchants: [:environment] do
+
+    file = "data/merchants.csv"
+
+    CSV.foreach(file, headers: true) do |row|
+      Merchant.create(row.to_h)
+    end
+  end
+
+  task items: [:environment] do
+
+    file = "data/items.csv"
+
+    CSV.foreach(file, headers: true) do |row|
+      Item.create(row.to_h)
+    end
+  end
+
+  task invoices: [:environment] do
+
+    file = "data/invoices.csv"
+
+    CSV.foreach(file, headers: true) do |row|
+      Invoice.create(row.to_h)
     end
   end
 
@@ -34,44 +55,8 @@ namespace :import_csv_files do
   # end
 
 
-  # task :invoices => [:environment] do
   #
-  #   file = "data/invoices.csv"
   #
-  #   CSV.foreach(files, :headers => true) do |row|
-  #     Invoice.create {
-  #       :name => row[1],
-  #       :league => row[2],
-  #       :some_other_data => row[4]
-  #     }
-  #   end
-  # end
-  #
-  # task :items => [:environment] do
-  #
-  #   file = "data/items.csv"
-  #
-  #   CSV.foreach(files, :headers => true) do |row|
-  #     Item.create {
-  #       :name => row[1],
-  #       :league => row[2],
-  #       :some_other_data => row[4]
-  #     }
-  #   end
-  # end
-  #
-  # task :merchants => [:environment] do
-  #
-  #   file = "data/merchants.csv"
-  #
-  #   CSV.foreach(files, :headers => true) do |row|
-  #     Merchant.create {
-  #       :name => row[1],
-  #       :league => row[2],
-  #       :some_other_data => row[4]
-  #     }
-  #   end
-  # end
   #
   # task :transactions => [:environment] do
   #
