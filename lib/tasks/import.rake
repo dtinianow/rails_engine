@@ -1,8 +1,8 @@
 require 'csv'
 
 namespace :import_csv_files do
+  desc 'Imports customer data'
   task customers: [:environment] do
-
     file = "data/customers.csv"
 
     CSV.foreach(file, headers: true) do |row|
@@ -10,8 +10,8 @@ namespace :import_csv_files do
     end
   end
 
+  desc 'Imports merchant data'
   task merchants: [:environment] do
-
     file = "data/merchants.csv"
 
     CSV.foreach(file, headers: true) do |row|
@@ -19,8 +19,8 @@ namespace :import_csv_files do
     end
   end
 
+  desc 'Imports item data'
   task items: [:environment] do
-
     file = "data/items.csv"
 
     CSV.foreach(file, headers: true) do |row|
@@ -28,8 +28,8 @@ namespace :import_csv_files do
     end
   end
 
+  desc 'Imports invoice data'
   task invoices: [:environment] do
-
     file = "data/invoices.csv"
 
     CSV.foreach(file, headers: true) do |row|
@@ -37,37 +37,31 @@ namespace :import_csv_files do
     end
   end
 
-  # task :invoice_items => [:environment] do
-  #
-  #   file = "data/invoice_items.csv"
-  #
-  #   CSV.foreach(file, :headers => true) do |row|
-  #     InvoiceItem.create({
-  #       id: row[0],
-  #       item_id: row[1],
-  #       invoice_id: row[2],
-  #       quantity: row[3],
-  #       unit_price: row[4],
-  #       :created_at => row[5],
-  #       :updated_at => row[6]
-  #     })
-  #   end
-  # end
+  desc 'Imports invoice_item data'
+  task invoice_items: [:environment] do
+    file = "data/invoice_items.csv"
 
+    CSV.foreach(file, headers: true) do |row|
+      InvoiceItem.create(row.to_h)
+    end
+  end
 
-  #
-  #
-  #
-  # task :transactions => [:environment] do
-  #
-  #   file = "data/transactions.csv"
-  #
-  #   CSV.foreach(files, :headers => true) do |row|
-  #     Transaction.create {
-  #       :name => row[1],
-  #       :league => row[2],
-  #       :some_other_data => row[4]
-  #     }
-  #   end
-  # end
+  desc 'Imports transaction data'
+  task transactions: [:environment] do
+    file = "data/transactions.csv"
+
+    CSV.foreach(file, headers: true) do |row|
+      Transaction.create(row.to_h)
+    end
+  end
+
+  desc 'Imports all csv data'
+  task all: [:environment] do
+    Rake::Task["import_csv_files:customers"].execute
+    Rake::Task["import_csv_files:merchants"].execute
+    Rake::Task["import_csv_files:items"].execute
+    Rake::Task["import_csv_files:invoices"].execute
+    Rake::Task["import_csv_files:invoice_items"].execute
+    Rake::Task["import_csv_files:transactions"].execute
+  end
 end
