@@ -1,35 +1,39 @@
 require 'csv'
 
-# desc "Import csv files from data folder"
 namespace :import_csv_files do
   task :customers => [:environment] do
 
     file = "data/customers.csv"
 
-    CSV.foreach(files, :headers => true) do |row|
-      Customer.create {
-        :id => row[0],
-        :first_name => row[1],
-        :last_name => row[2],
-        :created_at => row[3]
-        :updated_at => row[4]
-      }
+    CSV.foreach(file, :headers => true) do |row|
+      Customer.create({
+        id: row[0],
+        first_name: row[1],
+        last_name: row[2],
+        created_at: row[3],
+        updated_at: row[4]
+      })
     end
   end
-  #
+
   # task :invoice_items => [:environment] do
   #
   #   file = "data/invoice_items.csv"
   #
-  #   CSV.foreach(files, :headers => true) do |row|
-  #     InvoiceItem.create {
-  #       :name => row[1],
-  #       :league => row[2],
-  #       :some_other_data => row[4]
-  #     }
+  #   CSV.foreach(file, :headers => true) do |row|
+  #     InvoiceItem.create({
+  #       id: row[0],
+  #       item_id: row[1],
+  #       invoice_id: row[2],
+  #       quantity: row[3],
+  #       unit_price: row[4],
+  #       :created_at => row[5],
+  #       :updated_at => row[6]
+  #     })
   #   end
   # end
-  #
+
+
   # task :invoices => [:environment] do
   #
   #   file = "data/invoices.csv"
