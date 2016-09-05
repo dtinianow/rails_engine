@@ -1,25 +1,30 @@
 class Api::V1::MerchantsController < ApplicationController
+  respond_to :json
 
   def index
-    render json: Merchant.all
+    respond_with Merchant.all
   end
 
   def find
-    render json: Merchant.find_by(merchant_params)
+    respond_with Merchant.find_by(merchant_params)
   end
 
   def find_all
-    render json: Merchant.where(merchant_params)
+    respond_with Merchant.where(merchant_params)
   end
 
   def show
-    render json: Merchant.find(params[:id])
+    respond_with Merchant.find(params[:id])
   end
 
   def random
     random_id = rand(Merchant.count)
     random_merchant = Merchant.find(random_id)
-    render json: random_merchant
+    respond_with random_merchant
+  end
+
+  def most_revenue
+    respond_with Merchant.ranked_by_revenue(params[:quantity])
   end
 
   private
