@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       get 'merchants/find',         to: 'merchants#find'
@@ -7,7 +6,8 @@ Rails.application.routes.draw do
       get 'merchants/random',       to: 'merchants#random'
       get 'merchants/most_revenue', to: 'merchants#most_revenue'
       get 'merchants/most_items',   to: 'merchants#most_items'
-      get 'merchants/revenue',      to: 'merchants#revenue'
+      get 'merchants/revenue',      to: 'merchants#revenues_per_date'
+      get 'merchants/:id/revenue',  to: 'merchants#revenue'
       resources :merchants, only: [:index, :show]
 
       get 'invoices/find',     to: 'invoices#find'
