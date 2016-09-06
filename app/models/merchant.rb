@@ -42,11 +42,21 @@ class Merchant < ApplicationRecord
     date = DateTime.parse(date)
     find(merchant_id).
     invoices.
-    joins(:invoice_items,:transactions).
+    joins(:invoice_items, :transactions).
     where(
       invoices:     {created_at: date.beginning_of_day..date.end_of_day},
       transactions: {result:     'success'}
     ).
     sum('invoice_items.quantity*invoice_items.unit_price')
+  end
+
+  def self.favorite_customer(merchant_id)
+    find(merchant_id).
+    customers.
+    joins(invoices: :transactions).
+    where(transactions: {result: 'success'}).
+    group(:id).
+    order('count(invoices.customer_id) DESC').
+    first
   end
 end
