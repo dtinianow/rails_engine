@@ -10,8 +10,8 @@ Rails.application.routes.draw do
       get 'merchants/most_items',   to: 'merchants/best_sellers_by_items#index'
       resources :merchants, only: [:index, :show]
 
-      get 'invoices/find',     to: 'invoices#find'
-      get 'invoices/find_all', to: 'invoices#find_all'
+      get 'invoices/find_all', to: 'invoices/find#index'
+      get 'invoices/find',     to: 'invoices/find#show'
       get 'invoices/random',   to: 'invoices#random'
       resources :invoices, only: [:index, :show]
 
