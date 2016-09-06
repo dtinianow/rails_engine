@@ -31,8 +31,12 @@ class Api::V1::MerchantsController < ApplicationController
     respond_with Merchant.ranked_by_items_sold(params[:quantity])
   end
 
-  def revenue
+  def revenues_per_date
     respond_with Merchant.revenue_by_date(params[:date])
+  end
+
+  def revenue
+    respond_with Merchant.single_merchant_revenue(params[:id])
   end
 
   private
