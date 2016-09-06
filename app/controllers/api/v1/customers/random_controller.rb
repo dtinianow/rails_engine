@@ -3,7 +3,7 @@ class Api::V1::Customers::RandomController < ApplicationController
 
   def show
     random_id = rand(Customer.count)
-    random_item = Customer.find(random_id)
-    respond_with random_item
+    random_customer = Customer.find(random_id)
+    respond_with random_customer
   end
 end
