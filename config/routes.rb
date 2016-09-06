@@ -15,8 +15,8 @@ Rails.application.routes.draw do
       get 'invoices/random',   to: 'invoices/random#show'
       resources :invoices, only: [:index, :show]
 
-      get 'items/find',     to: 'items/find#show'
       get 'items/find_all', to: 'items/find#index'
+      get 'items/find',     to: 'items/find#show'
       get 'items/random',   to: 'items/random#show'
       resources :items, only: [:index, :show]
 
@@ -24,6 +24,11 @@ Rails.application.routes.draw do
       get 'invoice_items/find',     to: 'invoice_items/find#show'
       get 'invoice_items/random',   to: 'invoice_items/random#show'
       resources :invoice_items, only: [:index, :show]
+
+      get 'customers/find_all', to: 'customers/find#index'
+      get 'customers/find',     to: 'customers/find#show'
+      get 'customers/random',   to: 'customers/random#show'
+      resources :customers, only: [:index, :show]
     end
   end
 end
