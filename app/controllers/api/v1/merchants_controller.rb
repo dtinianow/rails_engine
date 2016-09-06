@@ -5,14 +5,6 @@ class Api::V1::MerchantsController < ApplicationController
     respond_with Merchant.all
   end
 
-  def find
-    respond_with Merchant.find_by(merchant_params)
-  end
-
-  def find_all
-    respond_with Merchant.where(merchant_params)
-  end
-
   def show
     respond_with Merchant.find(params[:id])
   end
@@ -41,11 +33,5 @@ class Api::V1::MerchantsController < ApplicationController
     else
       respond_with Merchant.single_merchant_revenue(params[:id])
     end
-  end
-
-  private
-
-  def merchant_params
-    params.permit(:id, :name, :created_at, :updated_at)
   end
 end
