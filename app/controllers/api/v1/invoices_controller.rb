@@ -8,10 +8,4 @@ class Api::V1::InvoicesController < ApplicationController
   def show
     respond_with Invoice.find(params[:id])
   end
-
-  def random
-    random_id = rand(Invoice.count)
-    random_invoice = Invoice.find(random_id)
-    respond_with random_invoice
-  end
 end
