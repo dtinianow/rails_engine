@@ -36,7 +36,11 @@ class Api::V1::MerchantsController < ApplicationController
   end
 
   def revenue
-    respond_with Merchant.single_merchant_revenue(params[:id])
+    if params[:date]
+      respond_with Merchant.single_merchant_revenue_by_date(params[:id], params[:date])
+    else
+      respond_with Merchant.single_merchant_revenue(params[:id])
+    end
   end
 
   private
