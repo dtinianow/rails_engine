@@ -22,7 +22,7 @@ class Merchant < ApplicationRecord
 
   def self.revenue_by_date(date)
     date = DateTime.parse(date)
-    total = joins(invoices: [:invoice_items,:transactions]).
+    joins(invoices: [:invoice_items,:transactions]).
     where(
       invoices:     {created_at: date.beginning_of_day..date.end_of_day},
       transactions: {result:     'success'}
@@ -35,6 +35,18 @@ class Merchant < ApplicationRecord
     invoices.
     joins(:invoice_items, :transactions).
     where(transactions: {result:'success'}).
+    sum('invoice_items.quantity*invoice_items.unit_price')
+  end
+
+  def self.single_merchant_revenue_by_date(merchant_id, date)
+    date = DateTime.parse(date)
+    find(merchant_id).
+    invoices.
+    joins(:invoice_items,:transactions).
+    where(
+      invoices:     {created_at: date.beginning_of_day..date.end_of_day},
+      transactions: {result:     'success'}
+    ).
     sum('invoice_items.quantity*invoice_items.unit_price')
   end
 end
