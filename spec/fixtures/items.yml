@@ -1,0 +1,17 @@
+one:
+  id: 1
+  name: Golf Club
+  description: Intended to strike golf balls.
+  unit_price: 75107
+  merchant_id: 1
+  created_at: '2012-03-27T14:53:59.000Z'
+  updated_at: '2012-03-27T14:53:59.000Z'
+
+two:
+  id: 2
+  name: Golf Ball
+  description: Intended to be striken by a golf club.
+  unit_price: 67076
+  merchant_id: 1
+  created_at: '2012-03-27T14:53:59.000Z'
+  updated_at: '2012-03-27T14:53:59.000Z'
