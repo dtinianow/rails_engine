@@ -11,7 +11,7 @@ class Item < ApplicationRecord
     take(quantity)
   end
 
-  def self.ranked_by_quantity(quantity)
+  def self.ranked_by_items_sold(quantity)
     joins(:invoice_items, invoices: :transactions).
     where(transactions: {result:'success'}).
     group(:id).
