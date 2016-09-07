@@ -10,4 +10,12 @@ class Item < ApplicationRecord
     order('sum(invoice_items.quantity*invoice_items.unit_price) DESC').
     take(quantity)
   end
+
+  def self.ranked_by_items_sold(quantity)
+    joins(:invoice_items, invoices: :transactions).
+    where(transactions: {result:'success'}).
+    group(:id).
+    order('sum(invoice_items.quantity) DESC').
+    take(quantity)
+  end
 end
