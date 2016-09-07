@@ -29,17 +29,17 @@ class Merchant < ApplicationRecord
     sum('invoice_items.quantity*invoice_items.unit_price')
   end
 
-  def self.single_merchant_revenue(merchant_id)
-    find(merchant_id).
+  def single_merchant_revenue
+    self.
     invoices.
     joins(:invoice_items, :transactions).
     where(transactions: {result:'success'}).
     sum('invoice_items.quantity*invoice_items.unit_price')
   end
 
-  def self.single_merchant_revenue_by_date(merchant_id, date)
+  def single_merchant_revenue_by_date(date)
     date = DateTime.parse(date)
-    find(merchant_id).
+    self.
     invoices.
     joins(:invoice_items, :transactions).
     where(
@@ -49,8 +49,8 @@ class Merchant < ApplicationRecord
     sum('invoice_items.quantity*invoice_items.unit_price')
   end
 
-  def self.favorite_customer(merchant_id)
-    find(merchant_id).
+  def favorite_customer
+    self.
     customers.
     joins(invoices: :transactions).
     where(transactions: {result: 'success'}).
@@ -58,4 +58,16 @@ class Merchant < ApplicationRecord
     order('count(invoices.customer_id) DESC').
     first
   end
+
+  # def customers_with_pending_invoices
+  #   Customer.
+  #   find(
+  #     self.
+  #     invoices.
+  #     joins(:transactions).
+  #     where(transactions: {result: 'failed'}).
+  #     first.
+  #     customer_id
+  #   )
+  # end
 end
