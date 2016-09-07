@@ -8,5 +8,6 @@ class Item < ApplicationRecord
     where(transactions: {result:'success'}).
     group(:id).
     order('sum(invoice_items.quantity*invoice_items.unit_price) DESC').
-    take(1)
+    take(quantity)
   end
+end
