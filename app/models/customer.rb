@@ -3,8 +3,8 @@ class Customer < ApplicationRecord
   has_many :merchants, through: :invoices
   has_many :transactions, through: :invoices
 
-  def self.favorite_merchant(customer_id)
-    find(customer_id).
+  def favorite_merchant
+    self.
     merchants.
     joins(invoices: :transactions).
     where(transactions: {result: 'success'}).
