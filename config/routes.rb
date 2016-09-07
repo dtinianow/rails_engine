@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       get 'merchants/revenue',               to: 'merchants/revenue#index'
       get 'merchants/:id/revenue',           to: 'merchants/revenue#show'
       get 'merchants/most_items',            to: 'merchants/best_sellers_by_items#index'
-      get 'merchants/:id/favorite_customer', to: 'merchants/favorite_customers#show'
+      get 'merchants/:id/favorite_customer', to: 'merchants/customers#show'
       get 'merchants/:id/items',             to: 'merchants/items#index'
       get 'merchants/:id/invoices',          to: 'merchants/invoices#index'
       resources :merchants, only: [:index, :show]
@@ -37,11 +37,12 @@ Rails.application.routes.draw do
       get 'invoice_items/:id/item',    to: 'invoice_items/items#show'
       resources :invoice_items, only: [:index, :show]
 
-      get 'customers/find_all',         to: 'customers/find#index'
-      get 'customers/find',             to: 'customers/find#show'
-      get 'customers/random',           to: 'customers/random#show'
-      get 'customers/:id/invoices',     to: 'customers/invoices#index'
-      get 'customers/:id/transactions', to: 'customers/transactions#index'
+      get 'customers/find_all',              to: 'customers/find#index'
+      get 'customers/find',                  to: 'customers/find#show'
+      get 'customers/random',                to: 'customers/random#show'
+      get 'customers/:id/invoices',          to: 'customers/invoices#index'
+      get 'customers/:id/transactions',      to: 'customers/transactions#index'
+      get 'customers/:id/favorite_merchant', to: 'customers/merchants#show'
       resources :customers, only: [:index, :show]
 
       get 'transactions/find_all',    to: 'transactions/find#index'
