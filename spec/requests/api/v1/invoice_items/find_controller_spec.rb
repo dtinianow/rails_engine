@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe "Invoice Items" do
+describe "Invoice Items Find" do
   fixtures :invoice_items
 
-  context "Find All" do
+  context "#Index" do
     it 'returns JSON data on all invoice items matching id params' do
       get '/api/v1/invoice_items/find_all?id=1'
 
@@ -90,7 +90,7 @@ describe "Invoice Items" do
     end
   end
 
-  context "Find" do
+  context "#Show" do
     it 'returns JSON data on a specific invoice_item matching item_id params' do
       get '/api/v1/invoice_items/find?item_id=2'
 
