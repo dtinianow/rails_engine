@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Customers" do
+describe "Customers Find" do
   fixtures :customers
 
   it 'returns JSON data on all customers matching first_name params' do
