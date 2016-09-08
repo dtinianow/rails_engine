@@ -59,15 +59,14 @@ class Merchant < ApplicationRecord
     first
   end
 
-  # def customers_with_pending_invoices
-  #   Customer.
-  #   find(
-  #     self.
-  #     invoices.
-  #     joins(:transactions).
-  #     where(transactions: {result: 'failed'}).
-  #     first.
-  #     customer_id
-  #   )
-  # end
+  def customers_with_pending_invoices
+    Customer.
+    find(
+      self.
+      invoices.
+      joins(:transactions).
+      where(transactions: {result: 'failed'}).
+      pluck(:customer_id)
+    )
+  end
 end
