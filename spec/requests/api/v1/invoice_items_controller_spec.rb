@@ -18,7 +18,7 @@ describe "InvoiceItems" do
     expect(invoice_item['item_id']).to eq(1)
     expect(invoice_item['invoice_id']).to eq(1)
     expect(invoice_item['quantity']).to eq(5)
-    expect(invoice_item['unit_price']).to eq(50005)
+    expect(invoice_item['unit_price']).to eq("500.05")
   end
 
   it 'returns JSON data on a specific invoice item' do
@@ -32,6 +32,6 @@ describe "InvoiceItems" do
     expect(invoice_item['item_id']).to eq(2)
     expect(invoice_item['invoice_id']).to eq(2)
     expect(invoice_item['quantity']).to eq(10)
-    expect(invoice_item['unit_price']).to eq(200020)
+    expect(invoice_item['unit_price']).to eq("2000.20")
   end
 end
