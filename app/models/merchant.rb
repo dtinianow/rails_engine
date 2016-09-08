@@ -59,19 +59,14 @@ class Merchant < ApplicationRecord
     first
   end
 
-  def self.convert_to_dollars
-     self / 100.00
+  def customers_with_pending_invoices
+    Customer.
+    find(
+      self.
+      invoices.
+      joins(:transactions).
+      where(transactions: {result: 'failed'}).
+      pluck(:customer_id)
+    )
   end
-
-  # def customers_with_pending_invoices
-  #   Customer.
-  #   find(
-  #     self.
-  #     invoices.
-  #     joins(:transactions).
-  #     where(transactions: {result: 'failed'}).
-  #     first.
-  #     customer_id
-  #   )
-  # end
 end
