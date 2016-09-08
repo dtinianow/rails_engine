@@ -13,7 +13,6 @@ describe "Customers Find" do
       expect(response).to be_success
       expect(customers.length).to eq(1)
       expect(customers.class).to eq(Array)
-
       expect(customer.class).to eq(Hash)
       expect(customer['id']).to eq(2)
       expect(customer['first_name']).to eq('Cecelia')
@@ -29,7 +28,6 @@ describe "Customers Find" do
       expect(response).to be_success
       expect(customers.length).to eq(1)
       expect(customers.class).to eq(Array)
-
       expect(customer.class).to eq(Hash)
       expect(customer['id']).to eq(1)
       expect(customer['first_name']).to eq('Joey')
