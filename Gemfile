@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'responders'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 
 group :development, :test do
   gem 'byebug', platform: :mri
