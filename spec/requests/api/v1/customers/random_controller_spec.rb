@@ -5,7 +5,7 @@ describe "Customers Random" do
 
   context '#Show' do
 
-    it 'returns JSON data on random customers' do
+    it 'returns JSON data on random customer' do
       get '/api/v1/customers/random'
 
       customer = JSON.parse(response.body)

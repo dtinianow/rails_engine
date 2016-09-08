@@ -5,7 +5,7 @@ describe "Transactions Random" do
 
   context '#Show' do
 
-    it 'returns JSON data on random transactions' do
+    it 'returns JSON data on random transaction' do
       get '/api/v1/transactions/random'
 
       transaction = JSON.parse(response.body)

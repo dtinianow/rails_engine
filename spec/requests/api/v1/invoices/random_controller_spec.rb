@@ -5,7 +5,7 @@ describe "Invoices Random" do
 
   context '#Show' do
 
-    it 'returns JSON data on random invoices' do
+    it 'returns JSON data on random invoice' do
       get '/api/v1/invoices/random'
 
       invoice = JSON.parse(response.body)
