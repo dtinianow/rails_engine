@@ -16,7 +16,6 @@ describe "Customer's Transactions" do
       expect(response).to be_success
       expect(transactions.length).to eq(1)
       expect(transactions.class).to eq(Array)
-
       expect(transaction.class).to eq(Hash)
       expect(transaction['id']).to eq(1)
       expect(transaction['invoice_id']).to eq(1)
