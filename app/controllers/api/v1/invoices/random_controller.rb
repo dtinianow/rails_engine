@@ -2,8 +2,7 @@ class Api::V1::Invoices::RandomController < ApplicationController
   respond_to :json
 
   def show
-    random_id = rand(Invoice.count)
-    random_invoice = Invoice.find(random_id)
-    respond_with random_invoice
-  end
+    random_offset = rand(Transaction.count)
+    random_transaction = Transaction.offset(random_offset).first
+    respond_with random_transaction  end
 end
