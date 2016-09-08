@@ -17,7 +17,7 @@ describe "Merchants Find" do
 
       expect(merchant.class).to eq(Hash)
       expect(merchant['id']).to eq(1)
-      expect(merchant['result']).to eq("David's Store")
+      expect(merchant['name']).to eq("David's Store")
     end
 
     it 'returns JSON data on all merchants matching name params' do
@@ -32,7 +32,7 @@ describe "Merchants Find" do
 
       expect(merchant.class).to eq(Hash)
       expect(merchant['id']).to eq(1)
-      expect(merchant['result']).to eq("David's Store")
+      expect(merchant['name']).to eq("David's Store")
     end
   end
 
