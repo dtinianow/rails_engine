@@ -11,11 +11,14 @@ describe "InvoiceItems" do
 
     expect(response).to be_success
     expect(invoice_items.length).to eq(2)
+    expect(invoice_items.class).to eq(Array)
+
+    expect(invoice_item.class).to eq(Hash)
     expect(invoice_item['id']).to eq(1)
-    expect(invoice_item['item_id']).to eq(539)
+    expect(invoice_item['item_id']).to eq(1)
     expect(invoice_item['invoice_id']).to eq(1)
     expect(invoice_item['quantity']).to eq(5)
-    expect(invoice_item['unit_price']).to eq(13635)
+    expect(invoice_item['unit_price']).to eq(50005)
   end
 
   it 'returns JSON data on a specific invoice item' do
@@ -24,10 +27,11 @@ describe "InvoiceItems" do
     invoice_item = JSON.parse(response.body)
 
     expect(response).to be_success
+    expect(invoice_item.class).to eq(Hash)
     expect(invoice_item['id']).to eq(2)
-    expect(invoice_item['item_id']).to eq(528)
-    expect(invoice_item['invoice_id']).to eq(1)
-    expect(invoice_item['quantity']).to eq(9)
-    expect(invoice_item['unit_price']).to eq(23324)
+    expect(invoice_item['item_id']).to eq(2)
+    expect(invoice_item['invoice_id']).to eq(2)
+    expect(invoice_item['quantity']).to eq(10)
+    expect(invoice_item['unit_price']).to eq(200020)
   end
 end

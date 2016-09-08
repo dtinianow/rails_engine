@@ -1,17 +1,17 @@
 one:
   id: 1
-  item_id: 539
+  item_id: 1
   invoice_id: 1
   quantity: 5
-  unit_price: 13635
-  created_at: '2012-03-27T14:54:09.000Z'
-  updated_at: '2012-03-27T14:54:09.000Z'
+  unit_price: 50005
+  created_at: '2012-03-25T09:54:09.000Z'
+  updated_at: '2012-03-25T09:54:09.000Z'
 
 two:
   id: 2
-  item_id: 528
-  invoice_id: 1
-  quantity: 9
-  unit_price: 23324
+  item_id: 2
+  invoice_id: 2
+  quantity: 10
+  unit_price: 200020
   created_at: '2012-03-27T14:54:09.000Z'
   updated_at: '2012-03-27T14:54:09.000Z'

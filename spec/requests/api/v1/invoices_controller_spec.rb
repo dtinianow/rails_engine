@@ -11,9 +11,12 @@ describe "Invoices" do
 
     expect(response).to be_success
     expect(invoices.length).to eq(2)
+    expect(invoices.class).to eq(Array)
+
+    expect(invoice.class).to eq(Hash)
     expect(invoice['id']).to eq(1)
     expect(invoice['customer_id']).to eq(1)
-    expect(invoice['merchant_id']).to eq(26)
+    expect(invoice['merchant_id']).to eq(1)
     expect(invoice['status']).to eq("shipped")
   end
 
@@ -23,9 +26,10 @@ describe "Invoices" do
     invoice = JSON.parse(response.body)
 
     expect(response).to be_success
+    expect(invoice.class).to eq(Hash)
     expect(invoice['id']).to eq(2)
-    expect(invoice['customer_id']).to eq(1)
-    expect(invoice['merchant_id']).to eq(75)
+    expect(invoice['customer_id']).to eq(2)
+    expect(invoice['merchant_id']).to eq(2)
     expect(invoice['status']).to eq("shipped")
   end
 end

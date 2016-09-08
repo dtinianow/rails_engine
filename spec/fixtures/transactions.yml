@@ -4,8 +4,8 @@ one:
   credit_card_number: '4654405418249632'
   credit_card_expiration_date:
   result: success
-  created_at: '2012-03-27T14:54:09.000Z'
-  updated_at: '2012-03-27T14:54:09.000Z'
+  created_at: '2012-03-25T09:54:09.000Z'
+  updated_at: '2012-03-25T09:54:09.000Z'
 
 two:
   id: 2
