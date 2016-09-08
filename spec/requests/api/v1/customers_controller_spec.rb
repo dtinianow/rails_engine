@@ -10,7 +10,7 @@ describe "Customers" do
     customer = customers.first
 
     expect(response).to be_success
-    expect(customers.length).to eq(2)
+    expect(customers.length).to eq(3)
     expect(customer['id']).to eq(1)
     expect(customer['first_name']).to eq('Joey')
     expect(customer['last_name']).to eq('Ondricka')
