@@ -20,11 +20,10 @@ class Merchant < ApplicationRecord
   end
 
   def self.revenue_by_date(date)
-    date = DateTime.parse(date)
     joins(invoices: [:invoice_items,:transactions]).
     where(
-      invoices:     {created_at: date.beginning_of_day..date.end_of_day},
-      transactions: {result:     'success'}
+      invoices:     {created_at: date},
+      transactions: {result: 'success'}
     ).
     sum('invoice_items.quantity*invoice_items.unit_price')
   end
@@ -38,13 +37,12 @@ class Merchant < ApplicationRecord
   end
 
   def single_merchant_revenue_by_date(date)
-    date = DateTime.parse(date)
     self.
     invoices.
     joins(:invoice_items, :transactions).
     where(
-      invoices:     {created_at: date.beginning_of_day..date.end_of_day},
-      transactions: {result:     'success'}
+      invoices:     {created_at: date},
+      transactions: {result: 'success'}
     ).
     sum('invoice_items.quantity*invoice_items.unit_price')
   end
@@ -59,19 +57,14 @@ class Merchant < ApplicationRecord
     first
   end
 
-  def self.convert_to_dollars
-     self / 100.00
+  def customers_with_pending_invoices
+    Customer.
+    find(
+      self.
+      invoices.
+      joins(:transactions).
+      where(transactions: {result: 'failed'}).
+      pluck(:customer_id)
+    )
   end
-
-  # def customers_with_pending_invoices
-  #   Customer.
-  #   find(
-  #     self.
-  #     invoices.
-  #     joins(:transactions).
-  #     where(transactions: {result: 'failed'}).
-  #     first.
-  #     customer_id
-  #   )
-  # end
 end
