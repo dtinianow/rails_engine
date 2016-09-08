@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Transactions Invoices" do
+describe "Transactions Invoice" do
   fixtures :transactions
   fixtures :invoices
 
