@@ -4,7 +4,7 @@ describe "Invoices Transactions" do
   fixtures :invoices
   fixtures :transactions
 
-  context "#Show" do
+  context "#Index" do
 
     it 'returns JSON data on all transactions belonging to an invoice' do
       get '/api/v1/invoices/1/transactions'
@@ -14,7 +14,6 @@ describe "Invoices Transactions" do
 
       expect(response).to be_success
       expect(transactions.class).to eq(Array)
-      
       expect(transaction.class).to eq(Hash)
       expect(transaction['id']).to eq(1)
       expect(transaction['invoice_id']).to eq(1)
