@@ -5,7 +5,6 @@ describe "Item's Merchant Show" do
   fixtures :merchants
 
   context "#Show" do
-
     it "returns JSON data on a specific item's merchants matching merchant_id params" do
       get '/api/v1/items/1/merchant'
 

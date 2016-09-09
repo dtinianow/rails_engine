@@ -5,7 +5,6 @@ describe "Customer's Invoices" do
   fixtures :invoices
 
   context "#Index" do
-
     it 'returns JSON data on all customer invoices matching id params' do
       get '/api/v1/customers/1/invoices'
 

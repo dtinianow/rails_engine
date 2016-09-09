@@ -6,7 +6,6 @@ describe "Customer's Transactions" do
   fixtures :transactions
 
   context "#Index" do
-
     it 'returns JSON data on all customer transactions matching id params' do
       get '/api/v1/customers/1/transactions'
 

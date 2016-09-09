@@ -7,7 +7,6 @@ describe "Merchants best sellers by items" do
   fixtures :transactions
 
   context "#Index" do
-
     it 'returns JSON data on all merchants by items sold matching quantity params' do
       get '/api/v1/merchants/most_items?quantity=1'
 

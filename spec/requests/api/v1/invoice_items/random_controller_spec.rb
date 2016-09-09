@@ -4,7 +4,6 @@ describe "Invoice Items Random" do
   fixtures :invoice_items
 
   context '#Show' do
-
     it 'returns JSON data on random invoice_item' do
       get '/api/v1/invoice_items/random'
 

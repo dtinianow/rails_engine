@@ -4,7 +4,6 @@ describe "Customers Random" do
   fixtures :customers
 
   context '#Show' do
-
     it 'returns JSON data on random customer' do
       get '/api/v1/customers/random'
 

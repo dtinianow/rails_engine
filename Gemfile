@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'responders'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -29,5 +30,3 @@ group :test do
   gem 'database_cleaner'
   gem 'simplecov', require: false
 end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -12,7 +12,6 @@ describe "Customers" do
     expect(response).to be_success
     expect(customers.length).to eq(2)
     expect(customers.class).to eq(Array)
-
     expect(customer.class).to eq(Hash)
     expect(customer['id']).to eq(1)
     expect(customer['first_name']).to eq('Joey')
@@ -26,7 +25,6 @@ describe "Customers" do
 
     expect(response).to be_success
     expect(customer.class).to eq(Hash)
-
     expect(customer['id']).to eq(2)
     expect(customer['first_name']).to eq('Cecelia')
     expect(customer['last_name']).to eq('Osinski')

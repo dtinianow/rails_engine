@@ -4,7 +4,6 @@ describe "Merchants Find" do
   fixtures :merchants
 
   context "#Index" do
-
     it 'returns JSON data on all merchants matching id params' do
       get '/api/v1/merchants/find_all?id=1'
 
@@ -14,7 +13,6 @@ describe "Merchants Find" do
       expect(response).to be_success
       expect(merchants.length).to eq(1)
       expect(merchants.class).to eq(Array)
-
       expect(merchant.class).to eq(Hash)
       expect(merchant['id']).to eq(1)
       expect(merchant['name']).to eq("David's Store")
@@ -29,7 +27,6 @@ describe "Merchants Find" do
       expect(response).to be_success
       expect(merchants.length).to eq(1)
       expect(merchants.class).to eq(Array)
-
       expect(merchant.class).to eq(Hash)
       expect(merchant['id']).to eq(1)
       expect(merchant['name']).to eq("David's Store")
@@ -37,7 +34,6 @@ describe "Merchants Find" do
   end
 
   context "#Show" do
-
     it 'returns JSON data on a specific merchant matching id params' do
       get '/api/v1/merchants/find?id=2'
 

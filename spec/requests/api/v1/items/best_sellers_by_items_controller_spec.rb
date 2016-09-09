@@ -6,7 +6,6 @@ describe "Item's best sellers by items" do
   fixtures :transactions
 
   context "#Index" do
-
     it 'returns JSON data on all best item sellers by items sold matching quantity params' do
       get '/api/v1/items/most_items?quantity=1'
 
@@ -16,7 +15,6 @@ describe "Item's best sellers by items" do
       expect(response).to be_success
       expect(best_sellers.length).to eq(1)
       expect(best_sellers.class).to eq(Array)
-
       expect(best_seller.class).to eq(Hash)
       expect(best_seller['id']).to eq(1)
       expect(best_seller['name']).to eq('Golf Club')
