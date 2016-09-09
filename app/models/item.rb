@@ -18,4 +18,14 @@ class Item < ApplicationRecord
     order('sum(invoice_items.quantity) DESC').
     take(quantity)
   end
+
+  def best_day
+    self.
+    invoices.
+    joins(:transactions).
+    where(transactions: {result: 'success'}).
+    order('quantity DESC, created_at DESC').
+    first.
+    created_at
+  end
 end
