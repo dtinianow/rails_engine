@@ -16,8 +16,4 @@ private
   def invoice_item_params
     params.permit(:id, :item_id, :invoice_id, :quantity, :unit_price, :created_at, :updated_at)
   end
-
-  def convert_unit_price_to_cents
-    params[:unit_price] = convert_to_cents(params[:unit_price]) if params[:unit_price]
-  end
 end
