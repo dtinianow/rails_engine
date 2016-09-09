@@ -8,7 +8,6 @@ describe "Merchants favorite customer" do
   fixtures :transactions
 
   context "#Show" do
-
     it 'returns JSON data on all merchants favorite customer matching id params' do
       get '/api/v1/merchants/1/favorite_customer'
 

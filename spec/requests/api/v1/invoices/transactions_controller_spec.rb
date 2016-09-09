@@ -5,7 +5,6 @@ describe "Invoices Transactions" do
   fixtures :transactions
 
   context "#Index" do
-
     it 'returns JSON data on all transactions belonging to an invoice' do
       get '/api/v1/invoices/1/transactions'
 

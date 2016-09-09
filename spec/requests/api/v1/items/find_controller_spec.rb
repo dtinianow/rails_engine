@@ -4,7 +4,6 @@ describe "Items Find" do
   fixtures :items
 
   context "#Index" do
-
     it 'returns JSON data on all items matching id params' do
       get '/api/v1/items/find_all?id=1'
 
@@ -14,7 +13,6 @@ describe "Items Find" do
       expect(response).to be_success
       expect(items.length).to eq(1)
       expect(items.class).to eq(Array)
-
       expect(item.class).to eq(Hash)
       expect(item['id']).to eq(1)
       expect(item['name']).to eq('Golf Club')
@@ -32,7 +30,6 @@ describe "Items Find" do
       expect(response).to be_success
       expect(items.length).to eq(1)
       expect(items.class).to eq(Array)
-
       expect(item.class).to eq(Hash)
       expect(item['id']).to eq(1)
       expect(item['name']).to eq('Golf Club')
@@ -50,7 +47,6 @@ describe "Items Find" do
       expect(response).to be_success
       expect(items.length).to eq(1)
       expect(items.class).to eq(Array)
-
       expect(item.class).to eq(Hash)
       expect(item['id']).to eq(1)
       expect(item['name']).to eq('Golf Club')
@@ -68,7 +64,6 @@ describe "Items Find" do
       expect(response).to be_success
       expect(items.length).to eq(1)
       expect(items.class).to eq(Array)
-
       expect(item.class).to eq(Hash)
       expect(item['id']).to eq(1)
       expect(item['name']).to eq('Golf Club')
@@ -86,7 +81,6 @@ describe "Items Find" do
       expect(response).to be_success
       expect(items.length).to eq(1)
       expect(items.class).to eq(Array)
-
       expect(item.class).to eq(Hash)
       expect(item['id']).to eq(1)
       expect(item['name']).to eq('Golf Club')
@@ -97,7 +91,6 @@ describe "Items Find" do
   end
 
   context "#Show" do
-
     it 'returns JSON data on a specific item matching id params' do
       get '/api/v1/items/find?id=2'
 

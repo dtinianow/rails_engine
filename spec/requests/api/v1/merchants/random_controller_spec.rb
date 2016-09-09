@@ -4,7 +4,6 @@ describe "Merchants Random" do
   fixtures :merchants
 
   context '#Show' do
-
     it 'returns JSON data on random merchant' do
       get '/api/v1/merchants/random'
 

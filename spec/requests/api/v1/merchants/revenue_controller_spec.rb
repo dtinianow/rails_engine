@@ -7,7 +7,6 @@ describe "Merchants Revenue" do
   fixtures :invoice_items
 
   context "#Index" do
-
     it 'returns JSON data on total revenue of all merchants on specific date' do
       get '/api/v1/merchants/revenue?date=2012-03-25T09:54:09.000Z'
 
@@ -21,7 +20,6 @@ describe "Merchants Revenue" do
   end
 
   context "#Show" do
-
     it 'returns JSON data on total revenue of a merchant' do
       get '/api/v1/merchants/1/revenue'
 

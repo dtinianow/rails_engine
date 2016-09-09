@@ -7,7 +7,6 @@ describe "Merchants Pending Invoices" do
   fixtures :transactions
 
   context "#Index" do
-
     it 'returns JSON data on customers with pending invoices' do
       get '/api/v1/merchants/2/customers_with_pending_invoices'
 

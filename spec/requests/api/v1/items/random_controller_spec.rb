@@ -4,7 +4,6 @@ describe "Items Random" do
   fixtures :items
 
   context '#Show' do
-
     it 'returns JSON data on random item' do
       get '/api/v1/items/random'
 

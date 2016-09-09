@@ -13,7 +13,6 @@ describe "Invoice Items Find" do
       expect(response).to be_success
       expect(invoice_items.length).to eq(1)
       expect(invoice_items.class).to eq(Array)
-
       expect(invoice_item.class).to eq(Hash)
       expect(invoice_item['id']).to eq(1)
       expect(invoice_item['item_id']).to eq(1)
@@ -30,7 +29,6 @@ describe "Invoice Items Find" do
       expect(response).to be_success
       expect(invoice_items.length).to eq(1)
       expect(invoice_items.class).to eq(Array)
-
       expect(invoice_item.class).to eq(Hash)
       expect(invoice_item['id']).to eq(1)
       expect(invoice_item['item_id']).to eq(1)
@@ -47,7 +45,6 @@ describe "Invoice Items Find" do
       expect(response).to be_success
       expect(invoice_items.length).to eq(1)
       expect(invoice_items.class).to eq(Array)
-
       expect(invoice_item.class).to eq(Hash)
       expect(invoice_item['id']).to eq(1)
       expect(invoice_item['item_id']).to eq(1)
@@ -64,7 +61,6 @@ describe "Invoice Items Find" do
       expect(response).to be_success
       expect(invoice_items.length).to eq(1)
       expect(invoice_items.class).to eq(Array)
-
       expect(invoice_item.class).to eq(Hash)
       expect(invoice_item['id']).to eq(1)
       expect(invoice_item['item_id']).to eq(1)
@@ -81,7 +77,6 @@ describe "Invoice Items Find" do
       expect(response).to be_success
       expect(invoice_items.length).to eq(1)
       expect(invoice_items.class).to eq(Array)
-
       expect(invoice_item.class).to eq(Hash)
       expect(invoice_item['id']).to eq(1)
       expect(invoice_item['item_id']).to eq(1)

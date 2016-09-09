@@ -5,7 +5,6 @@ describe "Invoices Invoice Items" do
   fixtures :invoice_items
 
   context "#Show" do
-
     it 'returns JSON data on all invoice items belonging to an invoice' do
       get '/api/v1/invoices/1/invoice_items'
 

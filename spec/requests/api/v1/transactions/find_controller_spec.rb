@@ -4,7 +4,6 @@ describe "Transactions Find" do
   fixtures :transactions
 
   context "#Index" do
-
     it 'returns JSON data on all transactions matching id params' do
       get '/api/v1/transactions/find_all?id=1'
 
@@ -14,7 +13,6 @@ describe "Transactions Find" do
       expect(response).to be_success
       expect(transactions.length).to eq(1)
       expect(transactions.class).to eq(Array)
-
       expect(transaction.class).to eq(Hash)
       expect(transaction['id']).to eq(1)
       expect(transaction['invoice_id']).to eq(1)
@@ -31,7 +29,6 @@ describe "Transactions Find" do
       expect(response).to be_success
       expect(transactions.length).to eq(1)
       expect(transactions.class).to eq(Array)
-
       expect(transaction.class).to eq(Hash)
       expect(transaction['id']).to eq(1)
       expect(transaction['invoice_id']).to eq(1)
@@ -48,7 +45,6 @@ describe "Transactions Find" do
       expect(response).to be_success
       expect(transactions.length).to eq(1)
       expect(transactions.class).to eq(Array)
-
       expect(transaction.class).to eq(Hash)
       expect(transaction['id']).to eq(1)
       expect(transaction['invoice_id']).to eq(1)
@@ -65,7 +61,6 @@ describe "Transactions Find" do
       expect(response).to be_success
       expect(transactions.length).to eq(1)
       expect(transactions.class).to eq(Array)
-
       expect(transaction.class).to eq(Hash)
       expect(transaction['id']).to eq(1)
       expect(transaction['invoice_id']).to eq(1)
@@ -75,7 +70,6 @@ describe "Transactions Find" do
   end
 
   context "#Show" do
-
     it 'returns JSON data on a specific transaction matching id params' do
       get '/api/v1/transactions/find?id=2'
 

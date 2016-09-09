@@ -6,7 +6,6 @@ describe "Items best day by quantity of item sold" do
   fixtures :transactions
 
   context "#Show" do
-
     it 'returns JSON data on date for when specific item sold the most' do
       get '/api/v1/items/1/best_day'
 

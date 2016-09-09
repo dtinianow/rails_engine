@@ -12,7 +12,6 @@ describe "Items" do
     expect(response).to be_success
     expect(items.length).to eq(2)
     expect(items.class).to eq(Array)
-
     expect(item.class).to eq(Hash)
     expect(item['id']).to eq(1)
     expect(item['name']).to eq("Golf Club")

@@ -5,7 +5,6 @@ describe "Invoices Merchants" do
   fixtures :merchants
 
   context "#Show" do
-
     it 'returns JSON data on a merchant belonging to an invoice' do
       get '/api/v1/invoices/1/merchant'
 

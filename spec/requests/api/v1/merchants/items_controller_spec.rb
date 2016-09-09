@@ -5,7 +5,6 @@ describe "Merchants Items" do
   fixtures :items
 
   context "#Index" do
-
     it 'returns JSON data on all items belonging to a merchant' do
       get '/api/v1/merchants/1/items'
 

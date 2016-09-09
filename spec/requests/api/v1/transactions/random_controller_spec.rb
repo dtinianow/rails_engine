@@ -4,7 +4,6 @@ describe "Transactions Random" do
   fixtures :transactions
 
   context '#Show' do
-
     it 'returns JSON data on random transaction' do
       get '/api/v1/transactions/random'
 
