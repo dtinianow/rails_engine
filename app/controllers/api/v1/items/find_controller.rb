@@ -16,8 +16,4 @@ private
   def item_params
     params.permit(:id, :name, :description, :unit_price, :merchant_id, :created_at, :updated_at)
   end
-
-  def convert_unit_price_to_cents
-    params[:unit_price] = convert_to_cents(params[:unit_price]) if params[:unit_price]
-  end
 end
